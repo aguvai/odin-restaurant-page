@@ -1,14 +1,14 @@
-const createElement = function (elementType, appendTo, elementProperties) {
+const createElement = function (elementProperties) {
     // elementProperties = {element's class/id, element's textContent}
 
-    const element = document.createElement(elementType);
-    if (elementProperties.elementIdentifier) {
-        element.classList.add(elementProperties.elementIdentifier);
+    const element = document.createElement(elementProperties.elementType);
+    if (elementProperties.elementClass) {
+        element.classList.add(elementProperties.elementClass);
     }
     if (elementProperties.elementTextContent) {
         element.textContent = elementProperties.elementTextContent;
     }
-    appendTo.appendChild(element);
+    elementProperties.appendTo.appendChild(element);
 
     return element;
 };
