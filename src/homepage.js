@@ -1,6 +1,6 @@
 const contentDiv = document.querySelector("#content");
 
-import { createElement } from "./createElement";
+import { createElement, createMultipleElementsOfType } from "./createElement";
 
 const createDivider = function(appendTo, divType) {
     let divider = createElement({
@@ -109,6 +109,23 @@ const createVisitUsContainer = function(){
             loading: "lazy",
             referrerpolicy: "no-referrer-when-downgrade",
         }
+    })
+
+    let textContainer = createElement({
+        elementType: "div",
+        appendTo: locationContainer,
+        elementClass: "text-container",
+    })
+
+    createMultipleElementsOfType({
+        elementType: "p",
+        appendTo: textContainer,
+        elementTextContent: [
+            "Hello world",
+            "What's up",
+            "This is a test!",
+            "Just seeing if it works",
+        ],
     })
 }
 

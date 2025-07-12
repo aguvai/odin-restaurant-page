@@ -21,4 +21,22 @@ const createElement = function (elementProperties) {
     return element;
 };
 
-export {createElement};
+const createMultipleElementsOfType = function(properties) {
+    // properties = { 
+    //                elementType,
+    //                appendTo,
+    //                elementClass,
+    //                [textContent for each element]
+    //              }
+
+    for (let pass = 0; pass < properties.elementTextContent.length; pass++) {
+        createElement({
+            elementType: properties.elementType,
+            appendTo: properties.appendTo,
+            elementClass: properties.elementClass,
+            elementTextContent: properties.elementTextContent[pass],
+        })
+    }
+}
+
+export {createElement, createMultipleElementsOfType};
