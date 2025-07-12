@@ -2,7 +2,7 @@ const contentDiv = document.querySelector("#content");
 
 import { createElement, createMultipleElementsOfType } from "./createElement";
 
-const createDivider = function(appendTo, divType) {
+const createDivider = function (appendTo, divType) {
     let divider = createElement({
         elementType: "div",
         appendTo: appendTo,
@@ -10,7 +10,7 @@ const createDivider = function(appendTo, divType) {
     });
 };
 
-const createBanner = function() {
+const createBanner = function () {
     let banner = createElement({
         elementType: "div",
         appendTo: contentDiv,
@@ -40,7 +40,7 @@ const createBanner = function() {
     });
 };
 
-const createInfoContainer = function() {
+const createInfoContainer = function () {
     let infoContainer = createElement({
         elementType: "div",
         appendTo: contentDiv,
@@ -70,33 +70,13 @@ const createInfoContainer = function() {
     let phoneText = createElement({
         elementType: "h3",
         appendTo: infoContainer,
-        elementTextContent: "212-247-3491", 
+        elementTextContent: "212-247-3491",
     })
 
     createDivider(infoContainer, "info-divider");
 };
 
-const createVisitUsContainer = function(){
-    let visitUsContainer = createElement({
-        elementType: "div",
-        appendTo: contentDiv,
-        elementClass: "visit-us",
-    })
-
-    let visitUsHeader = createElement({
-        elementType: "h1",
-        appendTo: visitUsContainer,
-        elementTextContent: "Visit Us"
-    })
-
-    createDivider(visitUsContainer, "info-divider")
-
-    let locationContainer = createElement({
-        elementType: "div",
-        appendTo: visitUsContainer,
-        elementClass: "location-container",
-    })
-
+const createLocationContainer = function(locationContainer){
     let map = createElement({
         elementType: "iframe",
         appendTo: locationContainer,
@@ -117,19 +97,78 @@ const createVisitUsContainer = function(){
         elementClass: "text-container",
     })
 
+    let addressText = createElement({
+        elementType: "div",
+        appendTo: textContainer,
+        elementClass: "address-text-container",
+    });
+
     createMultipleElementsOfType({
         elementType: "p",
-        appendTo: textContainer,
+        appendTo: addressText,
         elementTextContent: [
-            "Hello world",
-            "What's up",
-            "This is a test!",
-            "Just seeing if it works",
+            "Patsy's Italian Restaurant",
+            "236 West 56th Street",
+            "New York, NY 10019",
         ],
-    })
+    });
+
+    let extraText = createElement({
+        elementType: "div",
+        appendTo: textContainer,
+        elementClass: "extra-text-container",
+    });
+
+    createMultipleElementsOfType({
+        elementType: "p",
+        appendTo: extraText,
+        elementTextContent: [
+            "Located between Broadway and Eighth Avenue",
+            "Founded in 1944. Our one and only location.",
+        ],
+    });
+
+    let hoursDiv = createElement({
+        elementType: "div",
+        appendTo: textContainer,
+        elementClass: "hours-of-operation-container",
+    });
+
+    createMultipleElementsOfType({
+        elementType: "p",
+        appendTo: hoursDiv,
+        elementTextContent: [
+            "Hours of Operation:",
+            "Tuesday- Sunday 12:00 noon - 9:30pm",
+        ],
+    });
 }
 
-export default function() {
+const createVisitUsContainer = function () {
+    let visitUsContainer = createElement({
+        elementType: "div",
+        appendTo: contentDiv,
+        elementClass: "visit-us",
+    })
+
+    let visitUsHeader = createElement({
+        elementType: "h1",
+        appendTo: visitUsContainer,
+        elementTextContent: "Visit Us"
+    })
+
+    createDivider(visitUsContainer, "info-divider")
+
+    let locationContainer = createElement({
+        elementType: "div",
+        appendTo: visitUsContainer,
+        elementClass: "location-container",
+    })
+
+    createLocationContainer(locationContainer);
+}
+
+export default function () {
     createBanner();
 
     createInfoContainer();
