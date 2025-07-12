@@ -1,0 +1,1 @@
+This is a restaurant page created as a part of The Odin Project's curriculum.
