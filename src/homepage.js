@@ -55,6 +55,24 @@ const createInfoContainer = function() {
         elementTextContent: "Patsy's Italian Restaurant Of New York",
     });
 
+    let operatedByText = createElement({
+        elementType: "h3",
+        appendTo: infoContainer,
+        elementTextContent: "OWNED AND OPERATED BY THE SCOGNAMILLO FAMILY SINCE 1944",
+    })
+
+    let addressText = createElement({
+        elementType: "h3",
+        appendTo: infoContainer,
+        elementTextContent: "236 W. 56th St., New York, New York",
+    })
+
+    let phoneText = createElement({
+        elementType: "h3",
+        appendTo: infoContainer,
+        elementTextContent: "212-247-3491", 
+    })
+
     createDivider(infoContainer, "info-divider");
 };
 
